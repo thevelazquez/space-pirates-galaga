@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2682341823781157809}
   - component: {fileID: -2971600542617617206}
   - component: {fileID: 3527559789087395946}
+  - component: {fileID: 1067835493}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1efdd579ef99544babb3bc109215e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerSpeed: 5
+  laser: {fileID: 4425553294650530402, guid: 887fbeb16370f4e4caea57692364a928, type: 3}
 --- !u!61 &3527559789087395946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +145,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.81080914, y: 1.5356004}
   m_EdgeRadius: 0
+--- !u!50 &1067835493
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3518471141520514122}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
