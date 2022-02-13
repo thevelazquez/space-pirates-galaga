@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K)) {
-            Instantiate(enemyLaser, transform.position + new Vector3(deathOriginX,deathOriginY,0), Quaternion.identity);
+            ShootPlayer();
         }
     }
 
@@ -45,5 +45,9 @@ public class EnemyController : MonoBehaviour
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position + new Vector3(deathOriginX, deathOriginY, 0), .05f);
+    }
+
+    public void ShootPlayer() {
+        Instantiate(enemyLaser, transform.position + new Vector3(deathOriginX,deathOriginY,0), Quaternion.identity);
     }
 }

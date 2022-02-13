@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0496b3efe7ca9f4eb0f403935d6c540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  formation: {fileID: 0}
   deathAnimation: {fileID: 5630226950557545128, guid: c6f407d7f0750e546ae918281bb94ebf, type: 3}
+  enemyLaser: {fileID: 4425553294650530402, guid: 2d3e9e05925bdc84a8f32e85f05c1717, type: 3}
   deathOriginX: -0.015
   deathOriginY: 0.25
