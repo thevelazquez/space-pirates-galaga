@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FormationController : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class FormationController : MonoBehaviour
 
             }
         }
+        SceneManager.LoadScene("Level2");
 
         Debug.Log("All enemies killed");
         //When all enemies are killed

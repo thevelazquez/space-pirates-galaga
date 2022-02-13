@@ -4525,7 +4525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 0.1
-  actionTime: 0.5
+  actionTime: 2
 --- !u!4 &1593832625
 Transform:
   m_ObjectHideFlags: 0
@@ -6698,6 +6698,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2971600542617617206, guid: 1bc9e80ded6030e42afeb9b611c57059, type: 3}
+      propertyPath: livesCounter
+      value: 
+      objectReference: {fileID: 441263956}
     - target: {fileID: 3102566210359373565, guid: 1bc9e80ded6030e42afeb9b611c57059, type: 3}
       propertyPath: m_RootOrder
       value: 1

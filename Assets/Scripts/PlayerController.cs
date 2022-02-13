@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
@@ -8,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     public GameObject laser;
     public GameObject hitAnim;
-    public TextMeshProGUI livesCounter;
-    [SerializeField] int hp;
+    public TMP_Text livesCounter;
+    public static int hp = 3;
     [SerializeField] float iframesInSec;
     GameObject child;
     Renderer renderer;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         renderer = GetComponent<Renderer>();
         child = transform.GetChild(0).gameObject;
+        livesCounter.text = hp.ToString();
     }
 
     // Update is called once per frame
@@ -42,7 +44,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Hit!");
         Instantiate(hitAnim, transform.localPosition + new Vector3(0,0.8f,-1), Quaternion.identity);
         child.SetActive(false);
-        StartCoroutine(HitSequence());
+        hp--;
+        livesCounter.text = hp.ToString();
+        if (hp > 0) {
+            StartCoroutine(HitSequence());
+        } else {
+            gameObject.SetActive(false);
+            SceneManager.LoadScene("Lose Screen");
+        }
     }
 
     IEnumerator HitSequence() {
