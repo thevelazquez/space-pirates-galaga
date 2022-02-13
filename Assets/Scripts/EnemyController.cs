@@ -5,13 +5,16 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
+    //GameObject formation = transform.parent;
+
     public GameObject deathAnimation;
     public float deathOriginX;
     public float deathOriginY; 
 
+    FormationController parentScript;
     void Start()
     {
-        
+        parentScript = transform.parent.GetComponent<FormationController>();
     }
 
     // Update is called once per frame
@@ -23,11 +26,15 @@ public class EnemyController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D x) {
         if (x.name == "laser(Clone)") {
             
-            Instantiate(deathAnimation, transform.localPosition + new Vector3(deathOriginX, deathOriginY, 0), Quaternion.identity);
+            Instantiate(deathAnimation, transform.position + new Vector3(deathOriginX, deathOriginY, 0), Quaternion.identity);
             Destroy(x.gameObject);
             Destroy(gameObject);
         }
-        Debug.Log("Hit by " + x.name);
+
+        if (x.name == "Bumper" || x.name == "Bumper (1)") {
+            parentScript.ChangeDirection();
+        }
+        //Debug.Log("Hit by " + x.name);
     }
     void OnDrawGizmosSelected()
     {

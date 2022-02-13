@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserProjectile : MonoBehaviour
 {
     float delay = 1f;
-    public float speed;
+    public float speed; 
 
     // Start is called before the first frame update
     void Start()
