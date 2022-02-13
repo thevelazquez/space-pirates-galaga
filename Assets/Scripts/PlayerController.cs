@@ -29,4 +29,8 @@ public class PlayerController : MonoBehaviour
     float move() {
         return playerSpeed * Time.deltaTime;
     }
+
+    public void Hit() {
+        Debug.Log("Hit!");
+    }
 }

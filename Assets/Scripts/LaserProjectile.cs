@@ -28,7 +28,7 @@ public class LaserProjectile : MonoBehaviour
     void Update()
     {
         transform.Translate(0,speed*Time.deltaTime,0);
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
     }
 
     IEnumerator EndLife() {

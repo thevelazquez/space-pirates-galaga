@@ -26,19 +26,26 @@ public class FormationController : MonoBehaviour
 
     IEnumerator EnemyPicker() {
         while (transform.childCount>0) {
+            //Debug.Log(transform.childCount);
             yield return new WaitForSeconds(2f);
             //pick random child
-            chosenChild = transform.GetChild(Random.Range(0,transform.childCount-1)).gameObject;
-            enemyScript = chosenChild.GetComponent<EnemyController>();
-            enemyScript.ShootPlayer();
+            if (transform.childCount>0) {
+                
+                chosenChild = transform.GetChild(Random.Range(0,transform.childCount)).gameObject;
+                enemyScript = chosenChild.GetComponent<EnemyController>();
+                enemyScript.ShootPlayer();
+
+            }
         }
+        
+        Debug.Log("All enemies killed");
         //When all enemies are killed
     }
 
     public void ChangeDirection() {
         if (!isChangingDirection) {
             horizontalSpeed *= -1;
-            Debug.Log("Changing direction");
+            //Debug.Log("Changing direction");
         }
         isChangingDirection = true;
     }
