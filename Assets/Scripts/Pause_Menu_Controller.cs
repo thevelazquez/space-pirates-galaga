@@ -10,6 +10,8 @@ public class Pause_Menu_Controller : MonoBehaviour
 
     public GameObject controlUI;
 
+    public GameObject pauseButton;
+
     // Update is called once per frame
 
     void Start()
@@ -32,20 +34,23 @@ public class Pause_Menu_Controller : MonoBehaviour
         
     }
 
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         controlUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        pauseButton.SetActive(true);
 
     }
 
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        pauseButton.SetActive(false);
     }
 
 
@@ -67,5 +72,12 @@ public class Pause_Menu_Controller : MonoBehaviour
     {
         Debug.Log("Quit Game");
         Application.Quit();
+    }
+
+    
+    public void ExitControl()
+    {
+        controlUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 }
