@@ -17,13 +17,14 @@ public class EnemyController : MonoBehaviour
     {
         parentScript = transform.parent.GetComponent<FormationController>();
         
-        Instantiate(enemyLaser, transform.localPosition + new Vector3(deathOriginX,deathOriginY,0), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.K)) {
+            Instantiate(enemyLaser, transform.position + new Vector3(deathOriginX,deathOriginY,0), Quaternion.identity);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D x) {

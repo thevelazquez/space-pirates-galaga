@@ -14,19 +14,25 @@ public class LaserProjectile : MonoBehaviour
     {
         StartCoroutine(EndLife());
         isEnemyLaser = false;
-        if (transform.name == "Enemy laser(clone)") {
+        if (transform.name == "Enemy laser(Clone)") {
             isEnemyLaser = true;
             player = GameObject.Find("Player");
-            /*var dir = player.transform - Camera.main.WorldToScreenPoint(transform.position);
-            var angle = Mathf.Atan2(dir.y, dir.x) = Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
+            //transform.Rotate(0,0,90, Space.World);
+            Debug.Log("enemy laser shot");
+            //bless jimbobulus2 for this code https://answers.unity.com/questions/1023987/lookat-only-on-z-axis.html
+            Vector3 difference = player.transform.position - transform.position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90f);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //player = GameObject.Find("Player");
+        //transform.LookAt(player.transform, Vector3.up);
         transform.Translate(0,speed*Time.deltaTime,0);
+        Debug.Log(transform.position);
     }
 
     IEnumerator EndLife() {
