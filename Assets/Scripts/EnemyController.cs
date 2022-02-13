@@ -7,7 +7,8 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject deathAnimation;
     public float deathOriginX;
-    public float deathOriginY;
+    public float deathOriginY; 
+
     void Start()
     {
         
