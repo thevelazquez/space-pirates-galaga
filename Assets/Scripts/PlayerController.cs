@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public float playerSpeed;
     public GameObject laser;
+    public GameObject hitAnim;
+    public TextMeshProGUI livesCounter;
+    [SerializeField] int hp;
+    [SerializeField] float iframesInSec;
+    GameObject child;
+    Renderer renderer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        renderer = GetComponent<Renderer>();
+        child = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -32,5 +40,20 @@ public class PlayerController : MonoBehaviour
 
     public void Hit() {
         Debug.Log("Hit!");
+        Instantiate(hitAnim, transform.localPosition + new Vector3(0,0.8f,-1), Quaternion.identity);
+        child.SetActive(false);
+        StartCoroutine(HitSequence());
+    }
+
+    IEnumerator HitSequence() {
+        Color tmp = renderer.material.color;
+        tmp.a = 0.5f;
+        renderer.material.color = tmp;
+        Debug.Log("Color: " + tmp);
+        yield return new WaitForSeconds(iframesInSec);
+        Debug.Log("Color: " + tmp);
+        tmp.a = 1f;
+        renderer.material.color = tmp;
+        child.SetActive(true);
     }
 }

@@ -11,6 +11,7 @@ public class FormationController : MonoBehaviour
     Coroutine formationLoop;
     GameObject chosenChild;
     EnemyController enemyScript;
+    [SerializeField] float actionTime;
     void Start()
     {
         isChangingDirection = false;
@@ -27,7 +28,7 @@ public class FormationController : MonoBehaviour
     IEnumerator EnemyPicker() {
         while (transform.childCount>0) {
             //Debug.Log(transform.childCount);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(actionTime);
             //pick random child
             if (transform.childCount>0) {
                 
@@ -37,7 +38,7 @@ public class FormationController : MonoBehaviour
 
             }
         }
-        
+
         Debug.Log("All enemies killed");
         //When all enemies are killed
     }
