@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     //GameObject formation = transform.parent;
 
     public GameObject deathAnimation;
+    public GameObject enemyLaser;
     public float deathOriginX;
     public float deathOriginY; 
 
@@ -15,6 +16,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         parentScript = transform.parent.GetComponent<FormationController>();
+        
+        Instantiate(enemyLaser, transform.localPosition + new Vector3(deathOriginX,deathOriginY,0), Quaternion.identity);
     }
 
     // Update is called once per frame
