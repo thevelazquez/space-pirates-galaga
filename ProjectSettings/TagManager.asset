@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Background
+  - tier1
+  - tier2
+  - tier3
   layers:
   - Default
   - TransparentFX

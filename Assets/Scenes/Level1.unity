@@ -4526,6 +4526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 0.1
   actionTime: 2
+  scoreDisplay: {fileID: 1174967042}
 --- !u!4 &1593832625
 Transform:
   m_ObjectHideFlags: 0

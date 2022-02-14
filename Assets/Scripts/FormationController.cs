@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FormationController : MonoBehaviour
 {
+    public static int score = 0;
     public float horizontalSpeed;
     //public float maxSpeed;
     bool isChangingDirection;
@@ -13,10 +15,14 @@ public class FormationController : MonoBehaviour
     GameObject chosenChild;
     EnemyController enemyScript;
     [SerializeField] float actionTime;
+    public TMP_Text scoreDisplay;
+    int childCount;
     void Start()
     {
         isChangingDirection = false;
+        childCount = transform.childCount;
         formationLoop = StartCoroutine(EnemyPicker());
+        ChangeScore();
     }
 
     // Update is called once per frame
@@ -27,15 +33,16 @@ public class FormationController : MonoBehaviour
     }
 
     IEnumerator EnemyPicker() {
-        while (transform.childCount>0) {
-            //Debug.Log(transform.childCount);
+        while (childCount>0) {
+            //Debug.Log(childCount);
             yield return new WaitForSeconds(actionTime);
             //pick random child
-            if (transform.childCount>0) {
+            int childIndex = Random.Range(0,childCount);
+            if (childCount>0 && transform.childCount > childIndex) {
                 
-                chosenChild = transform.GetChild(Random.Range(0,transform.childCount)).gameObject;
+                chosenChild = transform.GetChild(childIndex).gameObject;
                 enemyScript = chosenChild.GetComponent<EnemyController>();
-                enemyScript.ShootPlayer();
+                enemyScript.DoAction(Random.Range(0,2));
 
             }
         }
@@ -51,5 +58,30 @@ public class FormationController : MonoBehaviour
             //Debug.Log("Changing direction");
         }
         isChangingDirection = true;
+    }
+    public void AddScore(string enemyType, bool bonus) {
+        int multiplier;
+        if (bonus) {
+            multiplier = 2;
+        } else {
+            multiplier = 1;
+        }
+        //Debug.Log(enemyType);
+        switch (enemyType) {
+            case "tier1":
+                score+=100*multiplier;
+                break;
+            case "tier2":
+                score+=150*multiplier;
+                break;
+            case "tier3":
+                score+=500*multiplier;
+                break;
+        }
+        childCount--;
+        ChangeScore();
+    }
+    void ChangeScore() {
+        scoreDisplay.text = "Score " + score.ToString();
     }
 }

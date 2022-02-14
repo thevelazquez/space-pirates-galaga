@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8619481762285697073}
   m_Layer: 0
   m_Name: Squid
-  m_TagString: Untagged
+  m_TagString: tier3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathAnimation: {fileID: 5630226950557545128, guid: c6f407d7f0750e546ae918281bb94ebf, type: 3}
   enemyLaser: {fileID: 4425553294650530402, guid: 2d3e9e05925bdc84a8f32e85f05c1717, type: 3}
-  player: {fileID: 0}
   deathOriginX: 0
   deathOriginY: 0.97
+  speed: 2
 --- !u!61 &8619481762285697073
 BoxCollider2D:
   m_ObjectHideFlags: 0

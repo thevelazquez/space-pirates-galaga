@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7811546831916785609}
   m_Layer: 0
   m_Name: Shark
-  m_TagString: Untagged
+  m_TagString: tier2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   enemyLaser: {fileID: 4425553294650530402, guid: 2d3e9e05925bdc84a8f32e85f05c1717, type: 3}
   deathOriginX: -0.015
   deathOriginY: 0.33
+  speed: 2

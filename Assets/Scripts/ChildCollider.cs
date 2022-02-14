@@ -21,5 +21,9 @@ public class ChildCollider : MonoBehaviour
             transform.parent.GetComponent<PlayerController>().Hit();
             Destroy(x.gameObject);
         }
+        if (x.tag.Substring(0,4) == "tier") {
+            transform.parent.GetComponent<PlayerController>().Hit();
+            x.gameObject.GetComponent<EnemyController>().Kill();
+        }
     }
 }
