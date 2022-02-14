@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             Instantiate(laser, transform.localPosition + new Vector3(0,1.7f,0), Quaternion.identity);
         }
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
     }
 
     float move() {
