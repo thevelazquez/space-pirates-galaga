@@ -6,11 +6,11 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    public static int hp = 3;
     public float playerSpeed;
     public GameObject laser;
     public GameObject hitAnim;
     public TMP_Text livesCounter;
-    public static int hp = 3;
     [SerializeField] float iframesInSec;
     GameObject child;
     Renderer renderer;

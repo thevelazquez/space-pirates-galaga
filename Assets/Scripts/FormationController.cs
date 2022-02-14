@@ -46,7 +46,11 @@ public class FormationController : MonoBehaviour
 
             }
         }
-        SceneManager.LoadScene("Level2");
+        if (SceneManager.GetActiveScene().name == "Level2") {
+            SceneManager.LoadScene("WinScreen");
+        } else {
+            SceneManager.LoadScene("Level2");
+        }
 
         Debug.Log("All enemies killed");
         //When all enemies are killed

@@ -42,6 +42,8 @@ public class main_menu : MonoBehaviour
 
     public void LoadLevel1()
     {
+        FormationController.score = 0;
+        PlayerController.hp = 3;
         SceneManager.LoadScene("Level1");
     }
     public void QuitGame()
